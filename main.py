@@ -15,7 +15,7 @@ songs = Songs()
 lotd_channel = 1085002849345339452
 
 # Time when to refresh LOTD
-LOTD_time = datetime.time(hour = 5, tzinfo=datetime.timezone.utc)
+LOTD_time = datetime.time(hour = 13,minute=25, tzinfo=datetime.timezone.utc)
 
 class MyCog(commands.Cog):
     def __init__(self,bot) -> None:
@@ -28,9 +28,14 @@ class MyCog(commands.Cog):
     @tasks.loop(time=LOTD_time)
     async def new_lyric(self):
         # Outputs a new LOTD at a specific time every day
+        output = ""
         channel = bot.get_channel(lotd_channel)
+        last_correct_answer = songs.get_answer()
         lyric = songs.get_random_lyric()
-        await channel.send(f"**The Lyric Of The Day**\n\n♪ {lyric} ♪")
+        if last_correct_answer != None:
+            output += f"The answer to the last LOTD was: ||{last_correct_answer['name']}||"
+
+        await channel.send(output + "\n" + f"**The Lyric Of The Day**\n\n♪ {lyric} ♪")
 
 @bot.event
 async def on_ready():
@@ -43,8 +48,12 @@ async def lotd(ctx):
     """
     Resets the LOTD and outputs it
     """
+    output = ""
+    last_correct_answer = songs.get_answer()
+    if last_correct_answer != None:
+        output += f"The answer to the last LOTD was: ||{last_correct_answer['name']}||"
     lyric = songs.get_random_lyric()
-    await ctx.send(f"♪ {lyric} ♪")
+    await ctx.send(output + "\n" + f"**The Lyric Of The Day**\n\n♪ {lyric} ♪")
 
 @lotd.error
 async def lotd_error(ctx,error):
@@ -79,6 +88,9 @@ async def guess_error(ctx,error):
         await ctx.send("You need to give an answer")
 
 if __name__ == "__main__":
-    bot.run(TOKEN)
+    if TOKEN == None:
+        print("No Token Found")
+    else:
+        bot.run(TOKEN)
 
 

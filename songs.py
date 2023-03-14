@@ -41,3 +41,8 @@ class Songs:
         Fetches all songs from files
         """
         self.songs = get_all_songs()
+
+    def get_answer(self):
+        for song in self.songs:
+            if song["ID"] == self.todays_song:
+                return song
