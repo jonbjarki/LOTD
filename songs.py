@@ -22,7 +22,7 @@ def get_all_songs():
 class Songs:
     def __init__(self) -> None:
         self.songs = get_all_songs()
-        self.todays_song = None
+        self.todays_song = self.get_todays_song()
 
     def get_random_lyric(self):
         """
@@ -33,12 +33,27 @@ class Songs:
         songLyric = song["lyrics"]
         lyricIndex = random.randint(0,len(songLyric)-2)
         
-        self.todays_song = song["ID"]
+        self.set_todays_song(song["ID"])
         return " ".join(songLyric[lyricIndex:lyricIndex+2])
     
+    def set_todays_song(self,songID):
+        data = {}
+        with open(jsonFile,"r") as f:
+            data = json.load(f)
+
+        with open(jsonFile,"w") as f:
+            data["todaysSong"] = songID
+            self.todays_song = songID
+            json.dump(data,f,indent=2)
+
+    def get_todays_song(self):
+        with open(jsonFile,"r") as f:
+            data = json.load(f)
+            return data["todaysSong"]
+
     def refresh_songs(self):
         """
-        Fetches all songs from files
+        Fetches all songs from files and updates todays song
         """
         self.songs = get_all_songs()
 

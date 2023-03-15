@@ -12,10 +12,12 @@ TOKEN = os.getenv("LOTD_TOKEN")
 songs = Songs()
 
 # Channel to spit output the Lyric of the day
-lotd_channel = 1085002849345339452
+lotd_channel = 1085337400517070920
+lotd_channel_test = 1085002849345339452
+bot_spam_id = 1085340266535321700
 
 # Time when to refresh LOTD
-LOTD_time = datetime.time(hour = 13,minute=25, tzinfo=datetime.timezone.utc)
+LOTD_time = datetime.time(hour = 5, tzinfo=datetime.timezone.utc)
 
 class MyCog(commands.Cog):
     def __init__(self,bot) -> None:
@@ -30,12 +32,13 @@ class MyCog(commands.Cog):
         # Outputs a new LOTD at a specific time every day
         output = ""
         channel = bot.get_channel(lotd_channel)
+        bot_channel = bot.get_channel(bot_spam_id)
         last_correct_answer = songs.get_answer()
         lyric = songs.get_random_lyric()
         if last_correct_answer != None:
             output += f"The answer to the last LOTD was: ||{last_correct_answer['name']}||"
 
-        await channel.send(output + "\n" + f"**The Lyric Of The Day**\n\n♪ {lyric} ♪")
+        await channel.send(output + "\n" + f"**The Lyric Of The Day**\n\n♪ {lyric} ♪\n\nMake your guess in {bot_channel.mention}")
 
 @bot.event
 async def on_ready():
@@ -48,12 +51,13 @@ async def lotd(ctx):
     """
     Resets the LOTD and outputs it
     """
+    bot_channel = bot.get_channel(bot_spam_id)
     output = ""
     last_correct_answer = songs.get_answer()
     if last_correct_answer != None:
         output += f"The answer to the last LOTD was: ||{last_correct_answer['name']}||"
     lyric = songs.get_random_lyric()
-    await ctx.send(output + "\n" + f"**The Lyric Of The Day**\n\n♪ {lyric} ♪")
+    await ctx.send(output + "\n" + f"**The Lyric Of The Day**\n\n♪ {lyric} ♪\n\nMake your guess in {bot_channel.mention}")
 
 @lotd.error
 async def lotd_error(ctx,error):

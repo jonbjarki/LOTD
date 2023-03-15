@@ -1,45 +1,45 @@
 {
-    "todaysSong": null,
-    "songs": [
-        {
-            "ID": 1,
-            "name": "Lemme Find Out",
-            "lyricsFile": "lemmefindout.txt"
-        },
-        {
-            "ID": 2,
-            "name": "Sad to The Bank",
-            "lyricsFile": "sadtothebank.txt"
-        },
-        {
-            "ID": 3,
-            "name": "Detox",
-            "lyricsFile": "detox.txt"
-        },
-        {
-            "ID": 4,
-            "name": "Solid",
-            "lyricsFile": "solid.txt"
-        },
-        {
-            "ID": 5,
-            "name": "Classic",
-            "lyricsFile": "classic.txt"
-        },
-        {
-            "ID": 6,
-            "name": "2 a.m. In a City You Can't Get To",
-            "lyricsFile": "2aminacityyoucantgetto.txt"
-        },
-        {
-            "ID": 7,
-            "name": "Crazy",
-            "lyricsFile": "crazy.txt"
-        },
-        {
-            "ID": 8,
-            "name": "Had Enough",
-            "lyricsFile": "hadenough.txt"
-        }
-    ]
+  "todaysSong": 7,
+  "songs": [
+    {
+      "ID": 1,
+      "name": "Lemme Find Out",
+      "lyricsFile": "lemmefindout.txt"
+    },
+    {
+      "ID": 2,
+      "name": "Sad to The Bank",
+      "lyricsFile": "sadtothebank.txt"
+    },
+    {
+      "ID": 3,
+      "name": "Detox",
+      "lyricsFile": "detox.txt"
+    },
+    {
+      "ID": 4,
+      "name": "Solid",
+      "lyricsFile": "solid.txt"
+    },
+    {
+      "ID": 5,
+      "name": "Classic",
+      "lyricsFile": "classic.txt"
+    },
+    {
+      "ID": 6,
+      "name": "2 a.m. In a City You Can't Get To",
+      "lyricsFile": "2aminacityyoucantgetto.txt"
+    },
+    {
+      "ID": 7,
+      "name": "Crazy",
+      "lyricsFile": "crazy.txt"
+    },
+    {
+      "ID": 8,
+      "name": "Had Enough",
+      "lyricsFile": "hadenough.txt"
+    }
+  ]
 }
