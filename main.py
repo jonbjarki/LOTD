@@ -90,11 +90,11 @@ async def lotd_error(ctx, error):
         await ctx.send("You do not have permission to use this command")
 
 
-@bot.command
+@bot.command()
 async def lotd(ctx):
     lyric = songs.get_lyric()
     if lyric is not None:
-        await ctx.send("The current LOTD is: \n" + lyric)
+        await ctx.send("The current LOTD is: \n" + f"♪ {lyric} ♪")
     else:
         await ctx.send("There is currently no lyric, generate a new one with !newlyric")
 

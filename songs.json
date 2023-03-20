@@ -1,6 +1,6 @@
 {
-  "todaysSong": null,
-  "lyric": null,
+  "todaysSong": 4,
+  "lyric": "And you know if you bawling and crying You call me, I'm siding",
   "songs": [
     {
       "ID": 1,
@@ -46,6 +46,31 @@
       "ID": 9,
       "name": "Like Father Like Son",
       "lyricsFile": "likefatherlikeson.txt"
+    },
+    {
+      "ID": 10,
+      "name": "Yoo-hoo",
+      "lyricsFile": "yoohoo.txt"
+    },
+    {
+      "ID": 11,
+      "name": "Adapt or Die",
+      "lyricsFile": "adaptordie.txt"
+    },
+    {
+      "ID": 12,
+      "name": "Brunswick Freestyle",
+      "lyricsFile": "brunswickfreestyle.txt"
+    },
+    {
+      "ID": 13,
+      "name": "Betting on Me",
+      "lyricsFile": "bettingonme.txt"
+    },
+    {
+      "ID": 14,
+      "name": "Fishy",
+      "lyricsFile": "fishy.txt"
     }
   ]
 }
