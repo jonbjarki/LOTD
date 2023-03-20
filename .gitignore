@@ -1,1 +1,3 @@
 __pycache__/
+sqlschema/
+/config.tx/config.json

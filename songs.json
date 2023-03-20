@@ -1,5 +1,6 @@
 {
-  "todaysSong": 7,
+  "todaysSong": null,
+  "lyric": null,
   "songs": [
     {
       "ID": 1,
@@ -40,6 +41,11 @@
       "ID": 8,
       "name": "Had Enough",
       "lyricsFile": "hadenough.txt"
+    },
+    {
+      "ID": 9,
+      "name": "Like Father Like Son",
+      "lyricsFile": "likefatherlikeson.txt"
     }
   ]
 }
